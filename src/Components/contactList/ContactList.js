@@ -1,21 +1,12 @@
 import React from "react";
 import s from "./ContactList.module.css";
-// import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-// import { removeContact } from "../../redux/contacts/actions";
 import { removeContactOperation } from "../../redux/contacts/contactsOperations";
 import {
   contactsErrorSelector,
   contactsIsLoadingSelector,
+  getWisibileContacts,
 } from "../../redux/contacts/contacts-selectors";
-
-const getWisibileContacts = ({ contacts: { items, filter } }) => {
-  if (filter) {
-    return items.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  } else return items;
-};
 
 const ContactList = () => {
   const error = useSelector(contactsErrorSelector);
